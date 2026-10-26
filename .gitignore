@@ -1,0 +1,47 @@
+# =========================
+# Lekke Lokal .gitignore
+# =========================
+
+# Operating system / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local environment / database credentials
+includes/db.php
+includes/email_config.php
+.env
+*.env
+
+# Backups and exported archives
+*.zip
+*.bak
+*.tmp
+*.old
+*.sql~
+*_backup.*
+backup/
+backups/
+
+# Runtime logs and rate-limit files
+logs/*
+!logs/.htaccess
+!logs/index.html
+
+# User-uploaded/generated files
+uploads/listings/*
+uploads/kyc/*
+!uploads/listings/.htaccess
+!uploads/listings/index.html
+!uploads/kyc/.htaccess
+!uploads/kyc/index.html
+
+# PHP dependency folders, if added later
+vendor/
+composer.lock
+
+# Node dependency folders, if added later
+node_modules/
+package-lock.json

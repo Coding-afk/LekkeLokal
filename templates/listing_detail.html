@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Listing Detail - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+<main class="page-shell">
+  <section class="content-panel content-panel--single">
+    <p class="eyebrow">My listing</p>
+    <h1>{{TITLE}}</h1>
+    <p class="page-intro">Update your listing information, remove existing photos, or add more photos.</p>
+    <div class="page-actions"><a class="button button--ghost" href="listings.php">Back to my listings</a></div>
+  </section>
+
+  <section class="form-panel">
+    {{MESSAGE}}
+<form id="listing-update-form" class="listing-form" action="listing_detail.php?id={{LISTING_ID}}" method="POST" enctype="multipart/form-data" data-validate-address-form data-address-error="Please complete a valid address using street number, street name, suburb, city/town, and a 4-digit postal code.">
+    <input type="hidden" name="listing_id" value="{{LISTING_ID}}">
+      <div class="detail-layout">
+        <div class="detail-images">
+          <h2>Current photos</h2>
+          <p class="section-note">Tick any photo you want to remove, then click Update listing.</p>
+          <div class="image-grid">{{IMAGES}}</div>
+
+          <div class="field photo-field" data-photo-picker data-empty-text="No new photos selected yet.">
+            <label>Add more photos</label>
+            <input class="photo-input visually-hidden-file" type="file" id="photos-more" name="photos[]" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" multiple>
+            <label class="photo-add-button" for="photos-more" data-photo-add>＋ Add photos</label>
+            <p class="section-note">
+              Accepted formats: JPG, JPEG, PNG, and WEBP. Each photo must be between 600 × 600 and 8000 × 8000 pixels. Each photo may not exceed 5 MB, and the total selected photo size may not exceed 10 MB. You can select up to 10 photos.
+            </p>
+
+            <div
+              class="notice notice--error"
+              data-photo-errors
+              role="alert"
+              aria-live="polite"
+              hidden
+            ></div>
+
+<div class="photo-preview-grid" data-photo-preview></div>
+          </div>
+        </div>
+
+        <div class="listing-form">
+          <div class="field"><label for="title">Title</label><input type="text" id="title" name="title" value="{{TITLE}}" required></div>
+          <div class="form-grid--two">
+            <div class="field"><label for="category_id">Category</label><select id="category_id" name="category_id" required>{{CATEGORY_OPTIONS}}</select></div>
+            <div class="field"><label for="status">Status</label><select id="status" name="status">{{STATUS_OPTIONS}}</select></div>
+          </div>
+          <div class="form-grid--two">
+            <div class="field"><label for="price">Price</label><input type="number" step="0.01" min="0.01" id="price" name="price" value="{{PRICE}}" required></div>
+            <div class="field"><label for="quantity">Quantity</label><input type="number" min="1" id="quantity" name="quantity" value="{{QUANTITY}}" required></div>
+          </div>
+          <div class="form-grid--two">
+            <div class="field"><label for="condition">Condition</label><select id="condition" name="condition" required>{{CONDITION_OPTIONS}}</select></div>
+            <div class="field"><label for="location">Province / location</label><select id="location" name="location" required>{{LOCATION_OPTIONS}}</select></div>
+          </div>
+          <div class="field"><label for="description">Description</label><textarea id="description" name="description" required>{{DESCRIPTION}}</textarea></div>
+
+          <section class="fulfilment-box" data-fulfilment-options>
+            <div>
+              <p class="eyebrow">Fulfilment</p>
+              <h2>Delivery and pickup options</h2>
+              <p class="section-note">Choose whether buyers can request delivery, pickup, or both for this listing.</p>
+            </div>
+
+            <div class="fulfilment-options">
+              <label class="check-card">
+                <input type="checkbox" name="allow_delivery" value="1" {{DELIVERY_CHECKED}}>
+                <span>Delivery available</span>
+              </label>
+
+              <label class="check-card">
+                <input type="checkbox" name="allow_pickup" value="1" {{PICKUP_CHECKED}} data-pickup-option>
+                <span>Pickup available</span>
+              </label>
+            </div>
+
+            <div class="field" data-pickup-address-wrap>
+              <label>Pickup address</label>
+              {{PICKUP_ADDRESS_FIELDS}}
+              <p class="section-note">Example: 15 Church Street, Durbanville, Cape Town, 7550.</p>
+            </div>
+          </section>
+
+                    <div class="form-actions listing-detail-actions">
+            <button class="button button--solid" type="submit">Update listing</button>
+            <button class="{{STATUS_BUTTON_CLASS}}" type="submit" form="listing-status-action-form">{{STATUS_BUTTON_LABEL}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form
+      id="listing-status-action-form"
+      action="listing_detail.php?id={{LISTING_ID}}"
+      method="POST"
+      data-confirm="{{STATUS_CONFIRM}}"
+    >
+      <input type="hidden" name="listing_id" value="{{LISTING_ID}}">
+      <input type="hidden" name="action" value="{{STATUS_ACTION}}">
+    </form>
+  </section>
+</main>
+</body>
+</html>

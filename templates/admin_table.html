@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>{{TABLE_NAME}} - Admin - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+<main class="admin-page-shell">
+  <header class="admin-topbar">
+    <a href="admin_dashboard.php" class="admin-logo-link">
+      <img src="assets/images/Long_Logo.png" alt="Lekke Lokal">
+    </a>
+    <div>
+      <p class="eyebrow">Admin table manager</p>
+      <h1>{{TABLE_NAME}}</h1>
+      <p class="section-note">Table: <strong>{{TABLE_KEY}}</strong></p>
+    </div>
+    <div class="admin-topbar-actions">
+      <a class="button button--ghost" href="admin_tables.php">Back to tables</a>
+      <a class="button button--ghost" href="logout.php">Sign out</a>
+    </div>
+  </header>
+
+  {{MESSAGE}}
+
+  <section class="admin-panel">
+    <div class="admin-panel__head">
+      <div>
+        <p class="eyebrow">Records</p>
+        <h2>View and edit table data</h2>
+      </div>
+      <p class="section-note">Save, delete, and create actions will ask for confirmation.</p>
+    </div>
+
+    <div class="admin-table-scroll admin-crud-table-wrap">
+      <table class="admin-data-table admin-crud-table">
+        <thead>
+          <tr>{{COLUMN_HEADERS}}</tr>
+        </thead>
+        <tbody>
+          {{RECORD_ROWS}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="admin-panel">
+    <div class="admin-panel__head">
+      <div>
+        <p class="eyebrow">Create</p>
+        <h2>Add a new record</h2>
+      </div>
+    </div>
+
+    <form class="admin-create-form" method="POST" data-confirm="Are you sure you want to create this record?">
+      <input type="hidden" name="table" value="{{TABLE_KEY}}">
+      <input type="hidden" name="admin_action" value="create">
+
+      <div class="admin-create-grid">
+        {{CREATE_FIELDS}}
+      </div>
+
+      <div class="form-actions">
+        <button class="button button--solid" type="submit">＋ Create record</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<script>
+(function(){
+  if (window.__lekkeAdminConfirmBound) return;
+  window.__lekkeAdminConfirmBound = true;
+
+  function getFormControls(form){
+    if (!form || !form.id) return [];
+    return Array.prototype.slice.call(document.querySelectorAll('[form]')).filter(function(field){
+      return field.getAttribute('form') === form.id && field.name && field.type !== 'hidden';
+    });
+  }
+
+  function updateFormHasChanges(form){
+    return getFormControls(form).some(function(field){
+      return String(field.value) !== String(field.dataset.originalValue || '');
+    });
+  }
+
+  document.querySelectorAll('form[data-confirm]').forEach(function(form){
+    form.addEventListener('submit', function(event){
+      var actionInput = form.querySelector('input[name="admin_action"]');
+      var action = actionInput ? actionInput.value : '';
+
+      if (action === 'update' && !updateFormHasChanges(form)) {
+        event.preventDefault();
+        alert('No changes detected. Nothing was updated.');
+        return;
+      }
+
+      var message = form.getAttribute('data-confirm') || 'Are you sure?';
+      if (!window.confirm(message)) {
+        event.preventDefault();
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>My Profile Details - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+
+<main class="page-shell">
+  <section class="content-panel content-panel--single">
+    <p class="eyebrow">Account hub</p>
+    <h1>My Profile Details</h1>
+    <p class="page-intro">View and edit your account, buyer delivery address, and seller profile details.</p>
+    <div class="page-actions">
+      <a class="button button--ghost" href="manage_account.php">Back to account</a>
+    </div>
+  </section>
+
+  {{MESSAGE}}
+
+  <section class="profile-layout">
+    <article class="content-panel">
+      <p class="eyebrow">View details</p>
+      <h2>Account summary</h2>
+
+      <div class="info-list info-list--profile">
+        <div class="info-row"><span>Name</span><strong>{{FIRST_NAME}} {{LAST_NAME}}</strong></div>
+        <div class="info-row"><span>Email</span><strong>{{EMAIL}}</strong></div>
+        <div class="info-row"><span>Phone</span><strong>{{PHONE_NUMBER}}</strong></div>
+        <div class="info-row"><span>Account status</span><strong>{{ACCOUNT_STATUS}}</strong></div>
+        <div class="info-row"><span>Role</span><strong>{{ACCOUNT_ROLE}}</strong></div>
+        <div class="info-row"><span>Seller store</span><strong>{{STORE_NAME}}</strong></div>
+        <div class="info-row"><span>Trust badge</span><strong>{{TRUST_BADGE}}</strong></div>
+        <div class="info-row"><span>Verification</span><strong>{{VERIFICATION_STATUS}}</strong></div>
+      </div>
+    </article>
+
+    <article class="form-panel">
+      <p class="eyebrow">Edit details</p>
+      <h2>Update your details</h2>
+
+      <form method="post" class="listing-form" data-validate-address-form data-address-error="Please complete a valid address using street number, street name, suburb, city/town, and a 4-digit postal code.">
+        <div class="form-grid--two">
+          <div class="field">
+            <label for="first_name">First name</label>
+            <input id="first_name" name="first_name" value="{{FIRST_NAME}}" required>
+          </div>
+
+          <div class="field">
+            <label for="last_name">Last name</label>
+            <input id="last_name" name="last_name" value="{{LAST_NAME}}" required>
+          </div>
+        </div>
+
+        <div class="form-grid--two">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" value="{{EMAIL}}" required>
+          </div>
+
+          <div class="field">
+            <label for="phone_number">Phone number</label>
+            <input id="phone_number" name="phone_number" value="{{PHONE_NUMBER}}" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Default delivery address</label>
+          {{DELIVERY_ADDRESS_FIELDS}}
+          <p class="section-note">Example: 15 Church Street, Durbanville, Cape Town, 7550.</p>
+        </div>
+
+        <div class="field">
+          <label for="language_code">Preferred language</label>
+          <select id="language_code" name="language_code" required>
+            {{LANGUAGE_OPTIONS}}
+          </select>
+        </div>
+
+
+        <div class="field">
+          <label for="store_name">Seller store name</label>
+          <input id="store_name" name="store_name" value="{{STORE_NAME}}" required>
+        </div>
+
+        <div class="field">
+          <label for="bio">Seller bio</label>
+          <textarea id="bio" name="bio">{{BIO}}</textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="button button--solid" type="submit">Save changes</button>
+        </div>
+      </form>
+    </article>
+  </section>
+</main>
+</body>
+</html>

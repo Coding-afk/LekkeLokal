@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>My Order History - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+
+<main class="page-shell">
+  <section class="content-panel content-panel--single">
+    <p class="eyebrow">Account hub</p>
+    <h1>My Order History</h1>
+    <p class="page-intro">These are all the orders you have placed as a buyer.</p>
+    <div class="page-actions">
+      <a class="button button--ghost" href="manage_account.php">Back to account</a>
+    </div>
+  </section>
+
+  <section class="orders-list">
+    {{ORDERS}}
+  </section>
+</main>
+</body>
+</html>

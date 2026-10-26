@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+    <title>Wishlist - Lekke Lokal</title>
+    <link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+  </head>
+  <body>
+    {{HEADER}}
+
+    <main class="page-shell">
+      <section class="hero-panel wishlist-hero">
+        <div class="hero-panel__copy">
+          <p class="eyebrow">Wishlist</p>
+          <h1><span class="pretty-emoji">❤️</span> Your saved listings</h1>
+          <p>Keep track of items you like and return to them quickly later.</p>
+          <div class="hero-panel__mini-actions">
+            <a class="button button--solid" href="dashboard.php"
+              >Browse marketplace</a
+            >
+          </div>
+        </div>
+
+        <div class="hero-panel__summary">
+          <div class="summary-card">
+            <strong>Saved items</strong>
+            <span
+              >Open a listing again, or remove it when you no longer need
+              it.</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="content-panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Wishlist items</p>
+            <h2><span class="pretty-emoji">⭐</span> Items you saved</h2>
+          </div>
+        </div>
+
+        <div class="wishlist-list">{{WISHLIST_ITEMS}}</div>
+      </section>
+    </main>
+  </body>
+</html>

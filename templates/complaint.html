@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Raise a complaint - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+
+<main class="page-shell">
+  <section class="content-panel content-panel--single">
+    <p class="eyebrow">Complaint support</p>
+    <h1>Raise a complaint</h1>
+    <p class="page-intro">Tell us what went wrong with this order. An admin will review the complaint and take the necessary action.</p>
+    <div class="page-actions">
+      <a class="button button--ghost" href="order_detail.php?id={{ORDER_ID}}">Back to order</a>
+    </div>
+  </section>
+
+  {{MESSAGE}}
+
+  <section class="sale-detail-layout">
+    <article class="content-panel">
+      <p class="eyebrow">Order details</p>
+      <h2>Order #{{ORDER_ID}}</h2>
+
+      <div class="info-list info-list--profile">
+        <div class="info-row"><span>Status</span><strong>{{STATUS}}</strong></div>
+        <div class="info-row"><span>Date</span><strong>{{ORDER_DATE}}</strong></div>
+        <div class="info-row"><span>Method</span><strong>{{METHOD}}</strong></div>
+        <div class="info-row"><span>Address</span><strong>{{ADDRESS}}</strong></div>
+        <div class="info-row"><span>Order total</span><strong>{{ORDER_TOTAL}}</strong></div>
+      </div>
+    </article>
+
+    <article class="content-panel">
+      <p class="eyebrow">Seller details</p>
+      <h2>Seller information</h2>
+      {{SELLERS}}
+    </article>
+  </section>
+
+  <section class="content-panel">
+    <p class="eyebrow">Listing items</p>
+    <h2>Items in this order</h2>
+    <div class="sale-items-list">
+      {{ITEMS}}
+    </div>
+  </section>
+
+  <section class="content-panel">
+    <p class="eyebrow">Complaint details</p>
+    <h2>Post your complaint</h2>
+    <p class="page-intro">Select the complaint category and explain the issue clearly. Your written complaint will remain in your original language.</p>
+
+    <form method="post" class="listing-form complaint-form" data-confirm="Are you sure you want to post this complaint?">
+      <input type="hidden" name="order_id" value="{{ORDER_ID}}">
+
+      <div class="field">
+        <label for="complaint_type">Complaint type</label>
+        <select id="complaint_type" name="complaint_type" required>
+          {{COMPLAINT_TYPE_OPTIONS}}
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="complaint_text">Complaint explanation</label>
+        <textarea id="complaint_text" name="complaint_text" placeholder="{{COMPLAINT_PLACEHOLDER}}" required data-no-translate>{{COMPLAINT_TEXT}}</textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="button button--solid" type="submit">{{SUBMIT_LABEL}}</button>
+        <a class="button button--ghost" href="order_detail.php?id={{ORDER_ID}}">Cancel</a>
+      </div>
+    </form>
+  </section>
+
+  <section class="content-panel">
+    <p class="eyebrow">Complaint history</p>
+    <h2>Your complaints for this order</h2>
+    <p class="page-intro">You can post another complaint if the issue is different or if the previous resolution did not solve the problem.</p>
+    <div class="complaint-history-list">
+      {{COMPLAINT_HISTORY}}
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

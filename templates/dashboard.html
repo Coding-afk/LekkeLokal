@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Dashboard - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+<main class="page-shell">
+  <section class="hero-panel hero-panel--simple">
+    <div class="hero-panel__copy">
+      <p class="eyebrow">Marketplace dashboard</p>
+      <h1><span class="pretty-emoji">👋</span> Welcome back, {{FIRST_NAME}}</h1>
+      <p>Browse listings from other sellers, search by category and province, and manage your own products from your account hub.</p>
+    </div>
+  </section>
+
+  <section class="content-panel">
+    <div class="section-head">
+      <div><p class="eyebrow">Available listings</p><h2><span class="pretty-emoji">🛒</span> Marketplace products</h2></div>
+      <p class="section-note">{{FILTER_NOTE}}</p>
+    </div>
+    <div class="listing-grid">{{LISTINGS}}</div>
+  </section>
+
+  <section class="dashboard-footer-card" aria-label="Marketplace support information">
+    <div class="dashboard-footer-card__main">
+      <p class="eyebrow">Marketplace support</p>
+      <h2><span class="pretty-emoji">📞</span> Need help with Lekke Lokal?</h2>
+      <p>
+        For account help, seller verification questions, order issues, or platform support,
+        contact the Lekke Lokal administrator.
+      </p>
+    </div>
+
+    <div class="dashboard-footer-card__details">
+  <div>
+    <strong>Support email</strong>
+    <a href="mailto:heinrich.lategan.1234@gmail.com">
+      heinrich.lategan.1234@gmail.com
+    </a>
+  </div>
+
+  <div>
+    <strong>Phone</strong>
+    <a href="tel:0123456789">012 345 6789</a>
+  </div>
+
+  <div>
+    <strong>User guide</strong>
+    <span>
+      Need more guidance?
+      <a href="download_user_guide.php">
+        Download the Lekke Lokal User Guide here.
+      </a>
+    </span>
+  </div>
+
+  <div>
+    <strong>Tip</strong>
+    <span>
+      Keep order messages clear and report serious issues through complaints.
+    </span>
+  </div>
+</div>
+  </section>
+</main>
+{{ORDER_SCRIPT}}
+</body>
+</html>

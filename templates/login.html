@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+  <title>Login - Lekke Lokal</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+  <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+  <main class="auth-page auth-page--compact">
+    <section class="auth-shell auth-shell--stacked">
+      <aside class="auth-left auth-left--top">
+        <div class="auth-top-message">
+          <div class="brand-badge auth-desktop-extra"><span></span> Lekke Lokal</div>
+
+          <div>
+            <h1>Welcome to your Lekke Lokal marketplace.</h1>
+            <p class="auth-desktop-extra">
+              Sign in to browse local listings, manage your account, message sellers, save wishlist items, and track your orders.
+            </p>
+          </div>
+
+          <div class="hero-cards auth-desktop-extra">
+            <div class="hero-card">
+              <div>
+                <strong><span class="pretty-emoji">🛒</span> Local marketplace</strong>
+                <small>Buy and sell goods in a community-focused C2C platform.</small>
+              </div>
+            </div>
+            <div class="hero-card">
+              <div>
+                <strong><span class="pretty-emoji">🔐</span> Secure login</strong>
+                <small>Your account uses OTP verification for safer access.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="auth-right auth-right--stacked">
+        <div class="form-card auth-form-card">
+          <div class="toggle">
+            <a class="active" href="index.php">Login</a>
+            <a href="register.php">Register</a>
+          </div>
+
+          <div class="form-header">
+            <h2><span class="pretty-emoji">👋</span> Log in</h2>
+            <p>Access your account to continue buying, selling, and managing your marketplace activity.</p>
+          </div>
+
+          {{NOTICE}}
+
+          <form class="form-grid" action="index.php" method="POST">
+            {{CSRF_INPUT}}
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="name@example.com" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="password-wrap">
+                <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+                <button type="button" data-toggle-password="password" data-show-text="Show" data-hide-text="Hide">Show</button>
+              </div>
+            </div>
+
+            <button class="btn" type="submit">Login</button>
+          </form>
+
+          <p class="subtle"><a href="forgot_password.php">Forgot password?</a></p>
+          <p class="subtle">Need an account? <a href="register.php">Create one here</a>.</p>
+        </div>
+
+        <p class="footer-note">Lekke Lokal • So Lekke, So Lokal</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

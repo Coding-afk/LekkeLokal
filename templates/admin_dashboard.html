@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Admin Dashboard - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+<main class="admin-page-shell">
+  <header class="admin-topbar">
+    <a href="admin_dashboard.php" class="admin-logo-link">
+      <img src="assets/images/Long_Logo.png" alt="Lekke Lokal">
+    </a>
+    <div>
+      <p class="eyebrow">Admin panel</p>
+      <h1>Welcome, {{ADMIN_NAME}}</h1>
+      <p class="section-note">Choose whether you want to manage database tables, review buyer complaints, or view website statistics.</p>
+    </div>
+    <a class="button button--ghost" href="logout.php">Sign out</a>
+  </header>
+
+  <section class="admin-panel">
+    <div class="admin-panel__head">
+      <div>
+        <p class="eyebrow">Admin tools</p>
+        <h2>Select what you want to manage</h2>
+      </div>
+      <p class="section-note">Table management, complaint review, and statistics are separated so each admin task stays clear and focused.</p>
+    </div>
+
+    <div class="admin-choice-grid">
+      <a class="admin-choice-card" href="admin_tables.php">
+        <span class="admin-choice-card__icon" aria-hidden="true">🗂️</span>
+        <strong>Manage Tables</strong>
+        <small>Open the current CRUD manager for database tables.</small>
+      </a>
+
+      <a class="admin-choice-card" href="admin_complaints.php">
+        <span class="admin-choice-card__icon" aria-hidden="true">⚠️</span>
+        <strong>Manage Complaints</strong>
+        <small>Review buyer complaints and mark them as handled/completed.</small>
+      </a>
+
+      <a class="admin-choice-card" href="admin_statistics.php">
+        <span class="admin-choice-card__icon" aria-hidden="true">📊</span>
+        <strong>View Statistics</strong>
+        <small>Review users, listings, orders, complaints, reviews, and marketplace activity.</small>
+      </a>
+
+      <a class="admin-choice-card" href="admin_seller_verifications.php">
+        <span class="admin-choice-card__icon" aria-hidden="true">✅</span>
+        <strong>Manage Seller Verifications</strong>
+        <small>Review seller KYC documents and monthly selfie checks.</small>
+      </a>
+    </div>
+  </section>
+</main>
+</body>
+</html>

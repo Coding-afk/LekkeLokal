@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Register - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+  <main class="auth-page auth-page--compact">
+    <section class="auth-shell auth-shell--stacked">
+      <aside class="auth-left auth-left--top">
+        <div class="auth-top-message">
+          <div class="brand-badge auth-desktop-extra"><span></span> Lekke Lokal</div>
+
+          <div>
+            <h1>Create your account and join the lokal marketplace.</h1>
+            <p class="auth-desktop-extra">
+              One account lets you buy from other local sellers, create your own listings, save wishlisted items, and manage your orders.
+            </p>
+          </div>
+
+          <div class="hero-cards auth-desktop-extra">
+            <div class="hero-card">
+              <div>
+                <strong><span class="pretty-emoji">🛍️</span> Buy and sell locally</strong>
+                <small>Use the same account as a buyer and seller in the Lekke Lokal marketplace.</small>
+              </div>
+            </div>
+            <div class="hero-card">
+              <div>
+                <strong><span class="pretty-emoji">✅</span> Built for trust</strong>
+                <small>Seller verification, reviews, complaints, and account security help keep the platform safer.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="auth-right auth-right--stacked">
+        <div class="form-card auth-form-card auth-form-card--wide">
+          <div class="toggle"><a href="index.php">Login</a><a class="active" href="register.php">Register</a></div>
+          <div class="form-header"><h2><span class="pretty-emoji">✨</span> Create account</h2><p>Fill in your details. You can buy and sell using this same account.</p></div>
+          {{NOTICE}}
+          <form class="form-grid" action="register.php" method="POST">
+            {{CSRF_INPUT}}
+            <div class="two-col">
+              <div class="field"><label for="first_name">First name</label><input type="text" id="first_name" name="first_name" placeholder="First name" required></div>
+              <div class="field"><label for="last_name">Last name</label><input type="text" id="last_name" name="last_name" placeholder="Last name" required></div>
+            </div>
+            <div class="two-col">
+              <div class="field"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="name@example.com" required></div>
+              <div class="field"><label for="phone_number">Phone number</label><input type="text" id="phone_number" name="phone_number" placeholder="+27..." required></div>
+            </div>
+
+            <div class="field">
+              <label for="language_code">Preferred language</label>
+              <select id="language_code" name="language_code" required>
+                                <option value="en" selected>English</option>
+                <option value="af">Afrikaans</option>
+                <option value="xh">isiXhosa</option>
+                <option value="zu">isiZulu</option>
+                <option value="nso">Sepedi</option>
+                <option value="tn">Setswana</option>
+                <option value="st">Sesotho</option>
+                <option value="ts">XiTsonga</option>
+                <option value="ss">siSwati</option>
+                <option value="ve">Tshivenda</option>
+                <option value="nr">isiNdebele</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="password-wrap">
+                <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                <button type="button" data-toggle-password="password" data-show-text="Show" data-hide-text="Hide">Show</button>
+              </div>
+              <div class="password-requirements">
+                <strong>Password requirements</strong>
+                <ul>
+                  <li>At least 10 characters</li>
+                  <li>One uppercase letter</li>
+                  <li>One lowercase letter</li>
+                  <li>One number</li>
+                  <li>One special character</li>
+                </ul>
+              </div>
+            </div>
+            <button class="btn" type="submit">Create account</button>
+          </form>
+          <p class="subtle">Already have an account? <a href="index.php">Log in here</a>.</p>
+        </div>
+        <p class="footer-note">Lekke Lokal • So Lekke, So Lokal</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

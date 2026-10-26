@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Buy Now - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+
+<main class="buy-page-shell">
+  <section class="buy-card" data-buy-screen data-delivery-label="Delivery address" data-pickup-label="Pickup address" data-unit-price="{{PRICE}}">
+    <div class="buy-card__photo">
+      {{IMAGE}}
+    </div>
+
+    <div class="buy-card__body">
+      <p class="eyebrow">🧾 Checkout</p>
+      <h1>{{TITLE}}</h1>
+
+      {{MESSAGE}}
+
+      <form class="buy-form" method="post" action="buy_now.php?id={{LISTING_ID}}" data-validate-address-form data-address-error="Please complete a valid address using street number, street name, suburb, city/town, and a 4-digit postal code.">
+        <input type="hidden" name="listing_id" value="{{LISTING_ID}}">
+
+        <div class="buy-row">
+          <span>Price</span>
+          <strong>{{PRICE_DISPLAY}}</strong>
+        </div>
+
+        <div class="buy-row">
+          <label for="quantity">Quantity</label>
+          <input id="quantity" name="quantity" type="number" min="1" max="{{MAX_QTY}}" value="{{SELECTED_QTY}}" data-buy-quantity required>
+        </div>
+
+        <p class="section-note">Available quantity: {{MAX_QTY}}</p>
+
+        <div class="fulfilment-options fulfilment-options--buy">
+          {{DELIVERY_RADIO}}
+          {{PICKUP_RADIO}}
+        </div>
+
+        <div class="field" data-delivery-address-wrap {{DELIVERY_ADDRESS_DISPLAY}}>
+          <label>Delivery address</label>
+          {{DELIVERY_ADDRESS_FIELDS}}
+          <p class="section-note">Example: 15 Church Street, Durbanville, Cape Town, 7550.</p>
+        </div>
+
+        <div class="field" data-pickup-address-wrap-buy {{PICKUP_ADDRESS_DISPLAY}}>
+          <label>Pickup address</label>
+          {{PICKUP_ADDRESS_FIELDS}}
+          <p class="section-note">This is the seller's pickup address for this item.</p>
+        </div>
+
+        <div class="buy-address-actions" data-save-address-wrap {{DELIVERY_ADDRESS_DISPLAY}}>
+          <button type="submit" name="action" value="save_address" class="button button--ghost" data-save-address-button>Save address</button>
+        </div>
+
+        <div class="buy-total">
+          <span>Total</span>
+          <strong data-buy-total>{{PRICE_DISPLAY}}</strong>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" name="action" value="place_order" class="button button--solid">Place order</button>
+          <a class="button button--ghost" href="listing_view.php?id={{LISTING_ID}}">Back to listing</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+</body>
+</html>

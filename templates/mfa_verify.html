@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>OTP Verification - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    </head>
+<body>
+  <main class="auth-page">
+    <section class="auth-shell auth-shell--single">
+      <section class="auth-right auth-right--centered">
+        <div class="form-card">
+          <div class="form-header">
+            <h2>OTP verification</h2>
+            <p>Enter the 6-digit code sent to <strong>{{MASKED_EMAIL}}</strong>.</p><p>For security, this verification is required every 4 hours.</p>
+          </div>
+          {{NOTICE}}
+          <form class="form-grid" action="mfa_verify.php" method="POST">
+            {{CSRF_INPUT}}
+            <div class="field">
+              <label for="otp_code">OTP code</label>
+              <input type="text" id="otp_code" name="otp_code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="123456" required>
+            </div>
+            <button class="btn" type="submit">Verify and continue</button>
+          </form>
+
+          <form class="mfa-resend-form" action="resend_mfa.php" method="POST">
+            {{CSRF_INPUT}}
+            <button class="button button--ghost" type="submit">Resend OTP</button>
+          </form>
+
+          <p class="subtle"><a href="logout.php">Cancel login</a></p>
+        </div>
+        <p class="footer-note">Lekke Lokal • So Lekke, So Lokal</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

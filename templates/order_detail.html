@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Order #{{ORDER_ID}} - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+
+<main class="page-shell">
+  <section class="content-panel content-panel--single">
+    <p class="eyebrow">My Order History</p>
+    <h1>Order #{{ORDER_ID}}</h1>
+    <p class="page-intro">Review your order summary and post a rating for the item you bought.</p>
+    <div class="page-actions">
+      <a class="button button--ghost" href="orders.php">Back to order history</a>
+    </div>
+  </section>
+
+  {{MESSAGE}}
+
+  <section class="sale-detail-layout">
+    <article class="content-panel">
+      <p class="eyebrow">Buyer and order details</p>
+      <h2>{{BUYER_NAME}}</h2>
+
+      <div class="info-list info-list--profile">
+        <div class="info-row"><span>Status</span><strong>{{STATUS}}</strong></div>
+        <div class="info-row"><span>Date</span><strong>{{ORDER_DATE}}</strong></div>
+        <div class="info-row"><span>Buyer email</span><strong>{{BUYER_EMAIL}}</strong></div>
+        <div class="info-row"><span>Buyer phone</span><strong>{{BUYER_PHONE}}</strong></div>
+        <div class="info-row"><span>Method</span><strong>{{METHOD}}</strong></div>
+        <div class="info-row"><span>Address</span><strong>{{ADDRESS}}</strong></div>
+        <div class="info-row"><span>Order total</span><strong>{{ORDER_TOTAL}}</strong></div>
+      </div>
+    </article>
+
+    <article class="content-panel">
+      <p class="eyebrow">Items bought</p>
+      {{PRODUCT_PHOTOS}}
+      <h2>Listing items</h2>
+      <div class="sale-items-list">
+        {{ITEMS}}
+      </div>
+      {{COMPLAINT_ACTION}}
+    </article>
+  </section>
+<section class="content-panel">
+    <p class="eyebrow">Ratings and reviews</p>
+    <h2>Rate your order</h2>
+    <p class="page-intro">Select a star rating and optionally write a short review. Your review will appear on the listing page.</p>
+    <div class="review-form-list">
+      {{REVIEWS}}
+    </div>
+  </section>
+</main>
+</body>
+</html>

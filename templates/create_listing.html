@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Create Listing - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+      <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+  </head>
+  <body>
+    {{HEADER}}
+    <main class="page-shell">
+      <section class="content-panel content-panel--single">
+        <p class="eyebrow">Seller tools</p>
+        <h1><span class="pretty-emoji">➕</span> Create new listing</h1>
+        <p class="page-intro">
+          Add the product details below. Use the plus button to select one
+          photo, several photos, or remove selected photos before saving.
+        </p>
+      </section>
+
+      <section class="form-panel">
+        {{MESSAGE}}
+        <form
+          class="listing-form"
+          action="create_listing.php"
+          method="POST"
+          enctype="multipart/form-data"
+          data-validate-address-form
+          data-address-error="Please complete a valid address using street number, street name, suburb, city/town, and a 4-digit postal code."
+        >
+          <div class="form-grid--two">
+            <div class="field">
+              <label for="title">Listing title</label
+              ><input
+                type="text"
+                id="title"
+                name="title"
+                maxlength="150"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="category_id">Category</label
+              ><select id="category_id" name="category_id" required>
+                {{CATEGORY_OPTIONS}}
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid--two">
+            <div class="field">
+              <label for="price">Price</label
+              ><input
+                type="number"
+                id="price"
+                name="price"
+                step="0.01"
+                min="0.01"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="quantity">Quantity</label
+              ><input
+                type="number"
+                id="quantity"
+                name="quantity"
+                min="1"
+                value="1"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-grid--two">
+            <div class="field">
+              <label for="condition">Condition</label
+              ><select id="condition" name="condition" required>
+                {{CONDITION_OPTIONS}}
+              </select>
+            </div>
+            <div class="field">
+              <label for="location">Province / location</label
+              ><select id="location" name="location" required>
+                {{LOCATION_OPTIONS}}
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="description">Description</label
+            ><textarea id="description" name="description" required></textarea>
+          </div>
+
+          <section class="fulfilment-box" data-fulfilment-options>
+            <div>
+              <p class="eyebrow">Fulfilment</p>
+              <h2><span class="pretty-emoji">🚚</span> Delivery and pickup options</h2>
+              <p class="section-note">
+                Choose whether buyers can request delivery, pickup, or both for
+                this listing.
+              </p>
+            </div>
+
+            <div class="fulfilment-options">
+              <label class="check-card">
+                <input
+                  type="checkbox"
+                  name="allow_delivery"
+                  value="1"
+                  checked
+                />
+                <span>Delivery available</span>
+              </label>
+
+              <label class="check-card">
+                <input
+                  type="checkbox"
+                  name="allow_pickup"
+                  value="1"
+                  checked
+                  data-pickup-option
+                />
+                <span>Pickup available</span>
+              </label>
+            </div>
+
+            <div class="field" data-pickup-address-wrap>
+              <label>Pickup address</label>
+              {{PICKUP_ADDRESS_FIELDS}}
+              <p class="section-note">
+                Example: 15 Church Street, Durbanville, Cape Town, 7550.
+              </p>
+            </div>
+          </section>
+
+          <div
+            class="field photo-field"
+            data-photo-picker
+            data-empty-text="No new photos selected yet."
+          >
+            <label>Product photos</label>
+            <input
+              class="photo-input visually-hidden-file"
+              type="file"
+              id="photos-new"
+              name="photos[]"
+              accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+              multiple
+            />
+            <label class="photo-add-button" for="photos-new" data-photo-add
+              >＋ Add photos</label
+            >
+            <p class="section-note">
+              Accepted formats: JPG, JPEG, PNG, and WEBP. Each photo must be between 600 × 600 and 8000 × 8000 pixels. Each photo may not exceed 5 MB, and the total selected photo size may not exceed 10 MB. You can select up to 10 photos.
+            </p>
+
+            <div
+              class="notice notice--error"
+              data-photo-errors
+              role="alert"
+              aria-live="polite"
+              hidden
+            ></div>
+
+            <div class="photo-preview-grid" data-photo-preview></div>
+          </div>
+
+          <div class="form-actions">
+            <button class="button button--solid" type="submit">
+              Create listing</button
+            ><a class="button button--ghost" href="listings.php"
+              >View my listings</a
+            >
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

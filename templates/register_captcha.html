@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Complete CAPTCHA - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    </head>
+<body>
+  <main class="auth-page">
+    <section class="auth-shell auth-shell--single">
+      <section class="auth-right auth-right--centered">
+        <div class="form-card">
+          <div class="form-header">
+            <h2>Complete security check</h2>
+            <p>Your account details are ready. Complete this CAPTCHA to finish creating your account for <strong>{{MASKED_EMAIL}}</strong>.</p>
+            <p>Your account is not saved until this CAPTCHA succeeds.</p>
+          </div>
+
+          {{NOTICE}}
+
+          <div class="security-check-card">
+            <div>
+              <strong>Complete CAPTCHA</strong>
+              <p>CAPTCHA is case-sensitive and may include symbols.</p>
+              <p><strong>{{ATTEMPTS_REMAINING}}</strong> attempts remaining.</p>
+            </div>
+
+            <div class="captcha-panel">
+              <div class="captcha-art" aria-hidden="true">
+                {{CAPTCHA_IMAGE}}
+              </div>
+              <a class="button button--ghost captcha-refresh" href="register_captcha.php?refresh=1">Refresh CAPTCHA</a>
+            </div>
+
+            <form class="form-grid" action="register_captcha.php" method="POST">
+              {{CSRF_INPUT}}
+              <div class="field">
+                <label for="captcha_answer">{{CAPTCHA_LABEL}}</label>
+                <input type="text" id="captcha_answer" name="captcha_answer" maxlength="12" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Enter the text shown" required autofocus>
+              </div>
+              <button class="btn" type="submit">Finish creating account</button>
+            </form>
+          </div>
+
+          <p class="subtle"><a href="register.php">Start registration again</a></p>
+        </div>
+        <p class="footer-note">Lekke Lokal • So Lekke, So Lokal</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

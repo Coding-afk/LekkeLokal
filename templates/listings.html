@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>My Listings - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+<main class="page-shell">
+  <section class="content-panel content-panel--single">
+    <p class="eyebrow">Account hub</p>
+    <h1>My listings</h1>
+    <p class="page-intro">These are only your own listings. Click a listing to view it in full or update it.</p>
+    <div class="page-actions"><a class="button button--solid" href="create_listing.php">Create new listing</a><a class="button button--ghost" href="manage_account.php">Back to account</a></div>
+  </section>
+  <section class="content-panel"> {{MESSAGE}}<div class="listing-grid">{{LISTINGS}}</div></section>
+</main>
+</body>
+</html>

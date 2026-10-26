@@ -1,0 +1,14 @@
+Options -Indexes
+
+# Never execute scripts from user-uploaded folders.
+<FilesMatch "\.(php|php3|php4|php5|phtml|phar|cgi|pl|asp|aspx|jsp|sh|bash)$">
+  Require all denied
+</FilesMatch>
+
+# Do not allow Apache/PHP handler tricks on uploaded files.
+RemoveHandler .php .php3 .php4 .php5 .phtml .phar .cgi .pl .asp .aspx .jsp .sh .bash
+RemoveType .php .php3 .php4 .php5 .phtml .phar .cgi .pl .asp .aspx .jsp .sh .bash
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>

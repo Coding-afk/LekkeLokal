@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Manage Tables - Admin - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+<main class="admin-page-shell">
+  <header class="admin-topbar">
+    <a href="admin_dashboard.php" class="admin-logo-link">
+      <img src="assets/images/Long_Logo.png" alt="Lekke Lokal">
+    </a>
+    <div>
+      <p class="eyebrow">Admin table manager</p>
+      <h1>Manage Tables</h1>
+      <p class="section-note">Welcome, {{ADMIN_NAME}}. Select a table to view and edit raw records.</p>
+    </div>
+    <div class="admin-topbar-actions">
+      <a class="button button--ghost" href="admin_dashboard.php">Back to admin dashboard</a>
+      <a class="button button--ghost" href="logout.php">Sign out</a>
+    </div>
+  </header>
+
+  <section class="admin-panel">
+    <div class="admin-panel__head">
+      <div>
+        <p class="eyebrow">Database tables</p>
+        <h2>Select a table to manage</h2>
+      </div>
+      <p class="section-note">Open a table to view records and perform create, update, and delete actions.</p>
+    </div>
+
+    <div class="admin-table-grid">
+      {{TABLE_CARDS}}
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>View Statistics - Admin - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+<main class="admin-page-shell">
+  <header class="admin-topbar admin-topbar--stats">
+    <a href="admin_dashboard.php" class="admin-logo-link">
+      <img src="assets/images/Long_Logo.png" alt="Lekke Lokal">
+    </a>
+    <div>
+      <p class="eyebrow">Admin statistics</p>
+      <h1>Website statistics</h1>
+      <p class="section-note">Welcome, {{ADMIN_NAME}}. Review the main marketplace statistics calculated from the current database.</p>
+      <p class="section-note">Last updated: {{UPDATED_AT}}</p>
+    </div>
+    <div class="admin-topbar-actions">
+      <a class="button button--ghost" href="admin_dashboard.php">Back to admin dashboard</a>
+      <a class="button button--ghost" href="admin_tables.php">Manage Tables</a>
+      <a class="button button--ghost" href="admin_complaints.php">Manage Complaints</a>
+      <a class="button button--ghost" href="logout.php">Sign out</a>
+    </div>
+  </header>
+
+  <section class="admin-panel">
+    <div class="admin-panel__head">
+      <div>
+        <p class="eyebrow">Statistics overview</p>
+        <h2>Quick health snapshot</h2>
+      </div>
+      <p class="section-note">This page gives a practical overview of users, listings, orders, complaints, reviews, and engagement.</p>
+    </div>
+
+    <div class="stats-metric-grid">
+      {{METRIC_CARDS}}
+    </div>
+  </section>
+
+  <section class="stats-two-column">
+    <section class="admin-panel">
+      <div class="admin-panel__head">
+        <div>
+          <p class="eyebrow">Marketplace listings</p>
+          <h2>Listing activity</h2>
+        </div>
+      </div>
+      <div class="stats-metric-grid stats-metric-grid--compact">
+        {{MARKET_CARDS}}
+      </div>
+    </section>
+
+    <section class="admin-panel">
+      <div class="admin-panel__head">
+        <div>
+          <p class="eyebrow">Engagement</p>
+          <h2>Wishlist and chat activity</h2>
+        </div>
+      </div>
+      <div class="stats-metric-grid stats-metric-grid--compact">
+        {{ENGAGEMENT_CARDS}}
+      </div>
+    </section>
+  </section>
+
+  <section class="admin-panel">
+    <div class="admin-panel__head">
+      <div>
+        <p class="eyebrow">Orders and value</p>
+        <h2>Order performance</h2>
+      </div>
+    </div>
+
+    <div class="stats-metric-grid">
+      {{ORDER_CARDS}}
+    </div>
+
+    <div class="stats-table-grid">
+      <section class="stats-table-card">
+        <h3>Order status breakdown</h3>
+        <div class="admin-table-scroll">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Orders</th>
+                <th>Total value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ORDER_STATUS_ROWS}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="stats-table-card">
+        <h3>Delivery method breakdown</h3>
+        <div class="admin-table-scroll">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Orders</th>
+                <th>Total value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ORDER_METHOD_ROWS}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="admin-panel">
+    <div class="admin-panel__head">
+      <div>
+        <p class="eyebrow">Trust and support</p>
+        <h2>Complaints and reviews</h2>
+      </div>
+      <a class="button button--ghost" href="admin_complaints.php">View complaints</a>
+    </div>
+
+    <div class="stats-metric-grid">
+      {{TRUST_CARDS}}
+    </div>
+
+    <div class="stats-table-grid">
+      <section class="stats-table-card">
+        <h3>Complaint type breakdown</h3>
+        <div class="stats-bar-list">
+          {{COMPLAINT_TYPE_ROWS}}
+        </div>
+      </section>
+
+      <section class="stats-table-card">
+        <h3>Recent open complaints</h3>
+        <div class="admin-table-scroll">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>Complaint</th>
+                <th>Complaint type</th>
+                <th>Buyer</th>
+                <th>Seller store</th>
+                <th>Created</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{RECENT_COMPLAINTS_ROWS}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="admin-panel">
+    <div class="admin-panel__head">
+      <div>
+        <p class="eyebrow">Category and seller insights</p>
+        <h2>What is performing well</h2>
+      </div>
+    </div>
+
+    <div class="stats-table-grid">
+      <section class="stats-table-card">
+        <h3>Top categories by active listings</h3>
+        <div class="stats-bar-list">
+          {{TOP_CATEGORIES_ROWS}}
+        </div>
+      </section>
+
+      <section class="stats-table-card">
+        <h3>Top categories by items sold</h3>
+        <div class="admin-table-scroll">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Items sold</th>
+                <th>Total value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{TOP_SOLD_ROWS}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="stats-table-card stats-table-card--wide">
+        <h3>Top sellers by order value</h3>
+        <div class="admin-table-scroll">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>Seller</th>
+                <th>Orders</th>
+                <th>Total value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{TOP_SELLERS_ROWS}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+</body>
+</html>

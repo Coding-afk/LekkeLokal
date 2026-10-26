@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Messages - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+
+<main class="chat-page-shell" data-live-chat data-chat-id="{{CHAT_ID}}" data-current-user-id="{{CURRENT_USER_ID}}" data-last-message-id="{{LAST_MESSAGE_ID}}">
+  <aside class="chat-sidebar">
+    <div class="chat-sidebar__head">
+      <p class="eyebrow">Messages</p>
+      <h1><span class="pretty-emoji">💬</span> Live chat</h1>
+    </div>
+
+    <div class="chat-thread-list">
+      {{CHAT_LIST}}
+    </div>
+  </aside>
+
+  <section class="chat-window">
+    <header class="chat-window__head">
+      <div>
+        <p class="eyebrow">Conversation</p>
+        <h2>{{CHAT_TITLE}}</h2>
+        <span>{{CHAT_SUBTITLE}}</span>
+      </div>
+    </header>
+
+    <div class="chat-messages" data-chat-messages>
+      {{MESSAGES}}
+    </div>
+
+    {{CHAT_FORM}}
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>Sale Order #{{ORDER_ID}} - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+
+<main class="page-shell">
+  <section class="content-panel content-panel--single">
+    <p class="eyebrow">My Sales</p>
+    <h1>Sale Order #{{ORDER_ID}}</h1>
+    <p class="page-intro">Review this buyer order and confirm it once handled/completed.</p>
+    <div class="page-actions">
+      <a class="button button--ghost" href="sales.php">Back to my sales</a>
+    </div>
+  </section>
+
+  {{MESSAGE}}
+
+  <section class="sale-detail-layout">
+    <article class="content-panel">
+      <p class="eyebrow">Buyer and order details</p>
+      <h2>{{BUYER_NAME}}</h2>
+
+      <div class="info-list info-list--profile">
+        <div class="info-row"><span>Status</span><strong>{{STATUS}}</strong></div>
+        <div class="info-row"><span>Date</span><strong>{{ORDER_DATE}}</strong></div>
+        <div class="info-row"><span>Buyer email</span><strong>{{BUYER_EMAIL}}</strong></div>
+        <div class="info-row"><span>Buyer phone</span><strong>{{BUYER_PHONE}}</strong></div>
+        <div class="info-row"><span>Method</span><strong>{{METHOD}}</strong></div>
+        <div class="info-row"><span>Address</span><strong>{{ADDRESS}}</strong></div>
+        <div class="info-row"><span>Your total</span><strong>{{SELLER_TOTAL}}</strong></div>
+      </div>
+
+      <form method="post" class="form-actions" data-confirm="Are you sure you want to confirm this sale as completed/handled?">
+        <input type="hidden" name="order_id" value="{{ORDER_ID}}">
+        <input type="hidden" name="status" value="completed">
+        {{STATUS_BUTTON}}
+      </form>
+    </article>
+
+    <article class="content-panel">
+      <p class="eyebrow">Items sold</p>
+      {{PRODUCT_PHOTOS}}
+      <h2>Listing items</h2>
+      <div class="sale-items-list">
+        {{ITEMS}}
+      </div>
+    </article>
+  </section>
+
+  <section class="content-panel">
+    <p class="eyebrow">Buyer reviews</p>
+    <h2>Buyer rating for this sale</h2>
+    <p class="page-intro">If the buyer has posted a rating or review for the item, it will appear below.</p>
+    <div class="review-list">
+      {{BUYER_REVIEWS}}
+    </div>
+  </section>
+</main>
+</body>
+</html>

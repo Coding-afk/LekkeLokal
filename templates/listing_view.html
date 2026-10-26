@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+<title>{{TITLE}} - Lekke Lokal</title>
+<link rel="stylesheet" href="assets/css/styles.css?v=final-ready-v3" />
+    <script defer src="assets/js/script.js?v=final-ready-v3"></script>
+</head>
+<body>
+{{HEADER}}
+
+<main class="page-shell listing-public-page">
+  <div class="page-actions listing-view-back">
+    <a class="button button--ghost" href="dashboard.php">Back to marketplace</a>
+  </div>
+
+  <section class="listing-public-layout">
+    <article class="listing-public-main-card">
+      <div class="public-thumbnails">
+        {{THUMBNAILS}}
+      </div>
+
+      <div class="public-main-photo">
+        {{MAIN_IMAGE}}
+      </div>
+
+      <div class="public-title-panel">
+        <p class="eyebrow">Item details</p>
+        <h1>{{TITLE}}</h1>
+
+        <div class="public-item-facts">
+          <div>
+            <span>Stock</span>
+            <strong>{{STOCK}}</strong>
+          </div>
+          <div>
+            <span>Status</span>
+            <strong>{{STATUS}}</strong>
+          </div>
+          <div>
+            <span>Seller</span>
+            <strong>{{SELLER_NAME}}</strong>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="description-card">
+      <div class="description-card__head">
+        <div>
+          <p class="eyebrow">Description</p>
+          <h2><span class="pretty-emoji">📝</span> About this item</h2>
+        </div>
+      </div>
+
+      <div class="listing-full-description" data-collapsible-description>
+        {{DESCRIPTION}}
+      </div>
+
+      {{DESCRIPTION_TOGGLE}}
+    </section>
+
+    {{REVIEWS_SECTION}}
+
+    <aside class="listing-side-stack">
+      <section class="side-card side-card--price">
+        <p class="eyebrow">Price information</p>
+        <div class="public-price">{{PRICE}}</div>
+        <a class="button button--solid" href="buy_now.php?id={{LISTING_ID}}">Buy now</a>
+        {{WISHLIST_BUTTON}}
+      </section>
+
+      <section class="side-card side-card--additional">
+        <p class="eyebrow">Additional information</p>
+        <div class="info-list">
+          {{INFO}}
+        </div>
+      </section>
+
+      <section class="side-card side-card--communication">
+        <p class="eyebrow">Communication</p>
+        <h2><span class="pretty-emoji">💬</span> Message the seller</h2>
+
+        {{MESSAGE_NOTICE}}
+
+        <form class="seller-message-form" method="post" action="listing_view.php?id={{LISTING_ID}}" id="seller-message">
+          <label class="sr-only" for="message_text">Message to seller</label>
+          <textarea id="message_text" name="message_text" placeholder="Please keep the conversation in English where possible unless you both agree to another language in chat." required></textarea>
+          <button type="submit" class="button button--solid">Send to chat</button>
+        </form>
+      </section>
+    </aside>
+  </section>
+</main>
+</body>
+</html>
